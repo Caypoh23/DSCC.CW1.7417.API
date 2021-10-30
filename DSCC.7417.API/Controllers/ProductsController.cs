@@ -14,9 +14,11 @@ namespace DSCC._7417.API.Controllers
     [ApiController]
     public class ProductsController : GenericController<Product>
     {
-        public ProductsController(IRepository<Product> productsRepository) : base(productsRepository)
-        {
+        private readonly IRepository<Category> _categoryRepository;
 
+        public ProductsController(IRepository<Product> productsRepository, IRepository<Category> categoryRepository) : base(productsRepository)
+        {
+            _categoryRepository = categoryRepository;
         }
 
         // GET: api/Products
@@ -32,7 +34,7 @@ namespace DSCC._7417.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetProduct(int id)
         {
-            var product = await _repository.GetByIdAsync(id);
+            var product = await _repository.GetByIdAsync(id, nameof(Product.ProductCategory));
 
             if (product == null)
             {
@@ -40,6 +42,15 @@ namespace DSCC._7417.API.Controllers
             }
             // returns a particular product
             return new OkObjectResult(product);
+        }
+
+        // populate dropdown list with category data for mvc
+        [HttpGet("Categories")]
+        public async Task<IActionResult> GetGenres()
+        {
+            //get all genres 
+            var genres = await _categoryRepository.GetAllAsync();
+            return new OkObjectResult(genres);
         }
 
         // PUT: api/Products/5
@@ -93,14 +104,14 @@ namespace DSCC._7417.API.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Product>> DeleteProduct(int id)
         {
-            var product = await _repository.GetByIdAsync(id);
+            var product = await _repository.GetByIdAsync(id, nameof(Product.ProductCategory));
 
             if (product == null)
             {
                 return NotFound();
             }
 
-            await _repository.DeleteAsync(id);
+            await _repository.DeleteAsync(product);
 
             return product;
         }

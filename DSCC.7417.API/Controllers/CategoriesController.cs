@@ -103,7 +103,7 @@ namespace DSCC._7417.API.Controllers
                 return NotFound();
             }
 
-            await _repository.DeleteAsync(id);
+            await _repository.DeleteAsync(category);
 
             return category;
         }

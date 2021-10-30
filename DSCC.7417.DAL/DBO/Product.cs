@@ -14,7 +14,7 @@ namespace DSCC._7417.DAL.DBO
 
         // category id cannot be empty
         public int CategoryId { get; set; }
-        public Category ProductCategory { get; set; }
+        public virtual Category ProductCategory { get; set; }
 
         [Required(ErrorMessage = "Price cannot be empty")]
         [Range(0, int.MaxValue, ErrorMessage = "Price cannot be negative value")]

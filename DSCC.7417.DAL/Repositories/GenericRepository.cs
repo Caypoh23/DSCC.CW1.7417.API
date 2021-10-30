@@ -11,10 +11,7 @@ namespace DSCC._7417.DAL.Repositories
     {
         protected readonly FurnitureDbContext _context;
 
-        public GenericRepository(FurnitureDbContext context)
-        {
-            _context = context;
-        }
+        public GenericRepository(FurnitureDbContext context) => _context = context;
 
         public async Task AddAsync(T entity)
         {
@@ -29,35 +26,28 @@ namespace DSCC._7417.DAL.Repositories
             await _context.SaveChangesAsync();
         }
 
-        // this method accepts an id of a specific product and removes it from the table
-        public async Task DeleteAsync(int id)
+        // this method accepts an id of a specific item and removes it from the table
+        public async Task DeleteAsync(T item)
         {
-            var product = await _context.Set<T>().FindAsync(id);
-            _context.Set<T>().Remove(product);
+            _context.Remove(item);
             await _context.SaveChangesAsync();
         }
 
         // gets a specific item from the table
-        public async Task<T> GetByIdAsync(int id)
-        {
-            return await _context.Set<T>().FirstOrDefaultAsync(e => e.Id == id);
-        }
+        public async Task<T> GetByIdAsync(int id) =>  await _context.Set<T>().FindAsync(id);
 
-        // method for getting all the records from the table
-        public async Task<List<T>> GetAllAsync(string category)
-        {
-            return await _context.Set<T>().Include(category).ToListAsync();
-        }
+        // get a specific item including category
+        public async Task<T> GetByIdAsync(int id, string category) => await _context.Set<T>().Include(category).SingleOrDefaultAsync(f => f.Id == id);
 
-        public async Task<List<T>> GetAllAsync()
-        {
-            return await _context.Set<T>().OrderBy(f => f.Id).ToListAsync();
-        }
+        // method for getting all the records from the table including category
+        public async Task<List<T>> GetAllAsync(string category) => await _context.Set<T>().Include(category).ToListAsync();
+
+        // method overrive for GetAllAsync(string category)
+        public async Task<List<T>> GetAllAsync() => await _context.Set<T>().OrderBy(f => f.Id).ToListAsync();
+
 
         // check if an item in table exists
-        public bool IfExists(int id)
-        {
-            return _context.Set<T>().Any(e => e.Id == id);
-        }
+        public bool IfExists(int id) => _context.Set<T>().Any(e => e.Id == id);
+
     }
 }

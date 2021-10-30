@@ -8,8 +8,9 @@ namespace DSCC._7417.DAL.Repositories
     {
         Task AddAsync(T entity);
         Task UpdateAsync(T entity);
-        Task DeleteAsync(int id);
+        Task DeleteAsync(T entity);
         Task<T> GetByIdAsync(int id);
+        Task<T> GetByIdAsync(int id, string propertyName);
         Task<List<T>> GetAllAsync(string propertyName);
         Task<List<T>> GetAllAsync();
         bool IfExists(int id);
