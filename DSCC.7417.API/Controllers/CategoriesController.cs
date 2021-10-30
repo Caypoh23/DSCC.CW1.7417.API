@@ -20,14 +20,15 @@ namespace DSCC._7417.API.Controllers
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public async Task<ActionResult> GetCategories()
         {
-            return await _repository.GetAllAsync();
+            var categories = await _repository.GetAllAsync();
+            return new OkObjectResult(categories);
         }
 
         // GET: api/Categories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<ActionResult> GetCategory(int id)
         {
             var category = await _repository.GetByIdAsync(id);
 
@@ -36,7 +37,7 @@ namespace DSCC._7417.API.Controllers
                 return NotFound();
             }
 
-            return category;
+            return new OkObjectResult (category);
         }
 
         // PUT: api/Categories/5

@@ -5802,11 +5802,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\WAD.Portfolio.00007417\\DSCC.CW1.7417.API\\DSCC.7417.DAL\\DSCC.7417.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\DSCC.CW1.7417.API\\DSCC.7417.DAL\\DSCC.7417.DAL.csproj",
       "projectName": "DSCC.7417.DAL",
-      "projectPath": "C:\\Users\\User\\Desktop\\WAD.Portfolio.00007417\\DSCC.CW1.7417.API\\DSCC.7417.DAL\\DSCC.7417.DAL.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\DSCC.CW1.7417.API\\DSCC.7417.DAL\\DSCC.7417.DAL.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\WAD.Portfolio.00007417\\DSCC.CW1.7417.API\\DSCC.7417.DAL\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\DSCC.CW1.7417.API\\DSCC.7417.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -44,9 +44,14 @@ namespace DSCC._7417.DAL.Repositories
         }
 
         // method for getting all the records from the table
+        public async Task<List<T>> GetAllAsync(string category)
+        {
+            return await _context.Set<T>().Include(category).ToListAsync();
+        }
+
         public async Task<List<T>> GetAllAsync()
         {
-            return await _context.Set<T>().OrderBy(e => e.Id).ToListAsync();
+            return await _context.Set<T>().OrderBy(f => f.Id).ToListAsync();
         }
 
         // check if an item in table exists

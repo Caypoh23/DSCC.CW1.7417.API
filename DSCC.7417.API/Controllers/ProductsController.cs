@@ -21,17 +21,16 @@ namespace DSCC._7417.API.Controllers
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts(int? categoryId)
+        public async Task<ActionResult> GetProducts()
         {
             // gets all products in the table
-            var categories = await _repository.GetAllAsync();
-            var result = categories.Where(c => categoryId == null || c.CategoryId == categoryId.Value);
-            return Ok(result);
+            var products = await _repository.GetAllAsync(nameof(Product.ProductCategory));
+            return new OkObjectResult(products);
         }
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult> GetProduct(int id)
         {
             var product = await _repository.GetByIdAsync(id);
 
@@ -40,7 +39,7 @@ namespace DSCC._7417.API.Controllers
                 return NotFound();
             }
             // returns a particular product
-            return product;
+            return new OkObjectResult(product);
         }
 
         // PUT: api/Products/5
