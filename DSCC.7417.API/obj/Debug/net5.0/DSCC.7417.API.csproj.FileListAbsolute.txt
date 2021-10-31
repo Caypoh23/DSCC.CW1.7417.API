@@ -123,3 +123,4 @@ C:\Users\User\Desktop\DSCC.CW1.7417.API\DSCC.7417.API\obj\Debug\net5.0\DSCC.7417
 C:\Users\User\Desktop\DSCC.CW1.7417.API\DSCC.7417.API\obj\Debug\net5.0\ref\DSCC.7417.API.dll
 C:\Users\User\Desktop\DSCC.CW1.7417.API\DSCC.7417.API\obj\Debug\net5.0\DSCC.7417.API.pdb
 C:\Users\User\Desktop\DSCC.CW1.7417.API\DSCC.7417.API\obj\Debug\net5.0\DSCC.7417.API.genruntimeconfig.cache
+C:\Users\User\Desktop\DSCC.CW1.7417.API\DSCC.7417.API\obj\Debug\net5.0\DSCC.7417.API.csproj.CopyComplete

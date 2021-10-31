@@ -1,0 +1,17 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/DSCC_CW1_7417_API
+  - source: codedeploy/deploy-scripts/7417_API.service
+    destination: /etc/systemd/system
+hooks:
+    ApplicationStop:
+      - location: codedeploy/deploy-scripts/application_stop.sh
+        timeout: 10
+    BeforeInstall:
+      - location: codedeploy/deploy-scripts/before-install.sh
+        timeout: 10
+    ApplicationStart:
+      - location: codedeploy/deploy-scripts/application_start.sh
+        timeout: 10
