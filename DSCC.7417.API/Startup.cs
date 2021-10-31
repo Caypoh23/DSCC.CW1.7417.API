@@ -29,6 +29,7 @@ namespace DSCC._7417.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DSCC._7417.API", Version = "v1" });
             });
 
+            // import context
             services.AddDbContext<FurnitureDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("FurnitureDB")));
 
             services.AddScoped<DbContext, FurnitureDbContext>();

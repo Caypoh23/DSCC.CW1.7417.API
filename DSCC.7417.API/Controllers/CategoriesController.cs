@@ -22,6 +22,7 @@ namespace DSCC._7417.API.Controllers
         [HttpGet]
         public async Task<ActionResult> GetCategories()
         {
+            // Get all the categories
             var categories = await _repository.GetAllAsync();
             return new OkObjectResult(categories);
         }
@@ -46,6 +47,7 @@ namespace DSCC._7417.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
+            // check if id is correct
             if (id != category.Id)
             {
                 return BadRequest();

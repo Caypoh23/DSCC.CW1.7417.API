@@ -33,18 +33,21 @@ namespace DSCC._7417.DAL.Repositories
             await _context.SaveChangesAsync();
         }
 
+        #region Get by Id
         // gets a specific item from the table
         public async Task<T> GetByIdAsync(int id) =>  await _context.Set<T>().FindAsync(id);
 
         // get a specific item including category
         public async Task<T> GetByIdAsync(int id, string category) => await _context.Set<T>().Include(category).SingleOrDefaultAsync(f => f.Id == id);
+        #endregion
 
+        #region Get all 
         // method for getting all the records from the table including category
         public async Task<List<T>> GetAllAsync(string category) => await _context.Set<T>().Include(category).ToListAsync();
 
         // method overrive for GetAllAsync(string category)
         public async Task<List<T>> GetAllAsync() => await _context.Set<T>().OrderBy(f => f.Id).ToListAsync();
-
+        #endregion
 
         // check if an item in table exists
         public bool IfExists(int id) => _context.Set<T>().Any(e => e.Id == id);

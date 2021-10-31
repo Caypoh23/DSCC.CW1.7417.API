@@ -34,13 +34,14 @@ namespace DSCC._7417.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetProduct(int id)
         {
+            // get a particular product including its category
             var product = await _repository.GetByIdAsync(id, nameof(Product.ProductCategory));
 
             if (product == null)
             {
                 return NotFound();
             }
-            // returns a particular product
+            
             return new OkObjectResult(product);
         }
 
@@ -59,6 +60,8 @@ namespace DSCC._7417.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
+            // check if id is correct
+
             if (id != product.Id)
             {
                 return BadRequest();
@@ -96,6 +99,11 @@ namespace DSCC._7417.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             await _repository.AddAsync(product);
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
