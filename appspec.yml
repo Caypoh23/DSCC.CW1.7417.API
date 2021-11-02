@@ -8,10 +8,10 @@ files:
 hooks:
     ApplicationStop:
       - location: codedeploy/deploy-scripts/application_stop.sh
-        timeout: 10
+        timeout: 300
     BeforeInstall:
       - location: codedeploy/deploy-scripts/before-install.sh
-        timeout: 10
+        timeout: 300
     ApplicationStart:
       - location: codedeploy/deploy-scripts/application_start.sh
-        timeout: 10
+        timeout: 300
