@@ -45,13 +45,12 @@ namespace DSCC._7417.API.Controllers
             return new OkObjectResult(product);
         }
 
-        // populate dropdown list with category data for mvc
+        // populate dropdown list with categories data for mvc
         [HttpGet("Categories")]
-        public async Task<IActionResult> GetGenres()
+        public async Task<IActionResult> GetCategories()
         {
-            //get all genres 
-            var genres = await _categoryRepository.GetAllAsync();
-            return new OkObjectResult(genres);
+            var categories = await _categoryRepository.GetAllAsync();
+            return new OkObjectResult(categories);
         }
 
         // PUT: api/Products/5
