@@ -7,6 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace DSCC._7417.API
 {
@@ -26,7 +29,20 @@ namespace DSCC._7417.API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DSCC._7417.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo 
+                { 
+                    Title = "DSCC._7417.API", 
+                    Version = "v1",
+                    Description = "An ASP.NET Core Web API for DSCC",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "00007417",
+                        Url = new Uri("https://github.com/Caypoh23/DSCC.CW1.7417.API")
+                    }
+                });
+                
+                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
 
             // import context

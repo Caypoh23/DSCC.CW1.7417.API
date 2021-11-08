@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DSCC.7417.API</name>
+    </assembly>
+    <members>
+        <member name="M:DSCC._7417.API.Controllers.CategoriesController.GetCategories">
+            <summary>
+            Gets the list of all Categories.
+            </summary>
+            <returns>The list of Categories.</returns>
+            <response code="200">If the categories were not found</response>
+        </member>
+        <member name="M:DSCC._7417.API.Controllers.CategoriesController.GetCategory(System.Int32)">
+             <summary>
+             Gets a single category details.
+             </summary>
+             <param name="id"></param>
+             <returns>A single category</returns>
+             <remarks>
+             Sample request:
+            
+                 GET /Categories/id
+                 {
+                    "id": {id}
+                 }
+            
+             </remarks>
+             <returns>a Particular Category details</returns>
+        </member>
+        <member name="M:DSCC._7417.API.Controllers.CategoriesController.PutCategory(System.Int32,DSCC._7417.DAL.DBO.Category)">
+             <summary>
+             Edits a Category.
+             </summary>
+             <param name="id"></param>
+             <param name="category"></param>
+             <returns>A modified category</returns>
+             <remarks>
+             Sample request:
+            
+                 PUT /Categories/id
+                 {
+                    "id": {id},
+                    "CategoryName": "Modified Category Name",
+                 }
+            
+             </remarks>
+             <response code="201">Returns the edited category</response>
+             <response code="400">If the category is null</response>
+        </member>
+        <member name="M:DSCC._7417.API.Controllers.CategoriesController.PostCategory(DSCC._7417.DAL.DBO.Category)">
+             <summary>
+             Creates a Category.
+             </summary>
+             <param name="category"></param>
+             <returns>A newly created category</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /Categories
+                 {
+                    "id": {id},
+                    "CategoryName": "Category Name"
+                 }
+            
+             </remarks>
+             <response code="201">Returns the newly created category</response>
+             <response code="400">If the category is null</response>
+        </member>
+        <member name="M:DSCC._7417.API.Controllers.CategoriesController.DeleteCategory(System.Int32)">
+             <summary>
+             Removes a category from Database.
+             </summary>
+             <param name="id"></param>
+             <returns>Deleted item</returns>
+             <remarks>
+             Sample request:
+            
+                 DELETE /Categories/id
+                 {
+                    "id": {id}
+                 }
+            
+             </remarks>
+             <response code="201">Returns the deleted Category</response>
+             <response code="400">If the category is null</response>
+        </member>
+        <member name="M:DSCC._7417.API.Controllers.ProductsController.GetProducts">
+            <summary>
+            Gets the list of all Products.
+            </summary>
+            <returns>The list of Products.</returns>
+            <response code="200">If the Products were not found</response>
+        </member>
+        <member name="M:DSCC._7417.API.Controllers.ProductsController.GetProduct(System.Int32)">
+             <summary>
+             Gets a single product details.
+             </summary>
+             <param name="id"></param>
+             <returns>A single product</returns>
+             <remarks>
+             Sample request:
+            
+                 GET /Products/id
+                 {
+                    "id": {id}
+                 }
+            
+             </remarks>
+             <returns>a Particular product details</returns>
+        </member>
+        <member name="M:DSCC._7417.API.Controllers.ProductsController.GetCategories">
+            <summary>
+            Gets the list of all Categories.
+            </summary>
+            <returns>The list of Categories.</returns>
+            <response code="200">If the Categories were not found</response>
+        </member>
+        <member name="M:DSCC._7417.API.Controllers.ProductsController.PutProduct(System.Int32,DSCC._7417.DAL.DBO.Product)">
+             <summary>
+             Edits a Product.
+             </summary>
+             <param name="id"></param>
+             <param name="product"></param>
+             <returns>A modified product</returns>
+             <remarks>
+             Sample request:
+            
+                 PUT /Products/id
+                 {
+                    "id": {id},
+                    "ProductName": "Product Name",
+                    "Description": "Modified Product Description",
+                    "CategoryId": "{categoryId}",
+                    "Price": "5.99"
+                    
+                 }
+            
+             </remarks>
+             <response code="201">Returns the edited product</response>
+             <response code="400">If the product is null</response>
+        </member>
+        <member name="M:DSCC._7417.API.Controllers.ProductsController.PostProduct(DSCC._7417.DAL.DBO.Product)">
+             <summary>
+             Create a new Product.
+             </summary>
+             <param name="product"></param>
+             <returns>A newly created product</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /Products
+                 {
+                    "ProductName": "Product Name",
+                    "Description": "Product Description",
+                    "CategoryId": "{categoryId}",
+                    "Price": "5.99"
+                    
+                 }
+            
+             </remarks>
+             <response code="201">Returns a newly created product</response>
+             <response code="400">If the product is null</response>
+        </member>
+        <member name="M:DSCC._7417.API.Controllers.ProductsController.DeleteProduct(System.Int32)">
+             <summary>
+             Removes a product from Database.
+             </summary>
+             <param name="id"></param>
+             <returns>Deleted product</returns>
+             <remarks>
+             Sample request:
+            
+                 DELETE /Products/id
+                 {
+                    "id": {id}
+                 }
+            
+             </remarks>
+             <response code="201">Returns the deleted product</response>
+             <response code="400">If the product is null</response>
+        </member>
+    </members>
+</doc>
