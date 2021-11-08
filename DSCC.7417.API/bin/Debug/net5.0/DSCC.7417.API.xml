@@ -9,7 +9,7 @@
             Gets the list of all Categories.
             </summary>
             <returns>The list of Categories.</returns>
-            <response code="200">If the categories were not found</response>
+            <response code="200">List of categories are successfully returned</response>
         </member>
         <member name="M:DSCC._7417.API.Controllers.CategoriesController.GetCategory(System.Int32)">
              <summary>
@@ -90,7 +90,7 @@
             Gets the list of all Products.
             </summary>
             <returns>The list of Products.</returns>
-            <response code="200">If the Products were not found</response>
+            <response code="200">List of Products are successfully returned</response>
         </member>
         <member name="M:DSCC._7417.API.Controllers.ProductsController.GetProduct(System.Int32)">
              <summary>
@@ -114,7 +114,7 @@
             Gets the list of all Categories.
             </summary>
             <returns>The list of Categories.</returns>
-            <response code="200">If the Categories were not found</response>
+            <response code="200">Categories were successfully returned</response>
         </member>
         <member name="M:DSCC._7417.API.Controllers.ProductsController.PutProduct(System.Int32,DSCC._7417.DAL.DBO.Product)">
              <summary>

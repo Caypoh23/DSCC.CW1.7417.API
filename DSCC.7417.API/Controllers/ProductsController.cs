@@ -71,7 +71,7 @@ namespace DSCC._7417.API.Controllers
         /// Gets the list of all Categories.
         /// </summary>
         /// <returns>The list of Categories.</returns>
-        /// <response code="200">If the Categories were not found</response>
+        /// <response code="200">Categories were successfully returned</response>
         // populate dropdown list with categories data for mvc
         [HttpGet("Categories")]
         public async Task<IActionResult> GetCategories()
