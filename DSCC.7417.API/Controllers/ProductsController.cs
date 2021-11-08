@@ -27,7 +27,7 @@ namespace DSCC._7417.API.Controllers
         /// Gets the list of all Products.
         /// </summary>
         /// <returns>The list of Products.</returns>
-        /// <response code="200">If the Products were not found</response>
+        /// <response code="200">List of Products are successfully returned</response>
         // GET: api/Products
         [HttpGet]
         public async Task<ActionResult> GetProducts()

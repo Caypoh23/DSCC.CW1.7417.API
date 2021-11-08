@@ -24,7 +24,7 @@ namespace DSCC._7417.API.Controllers
         /// Gets the list of all Categories.
         /// </summary>
         /// <returns>The list of Categories.</returns>
-        /// <response code="200">If the categories were not found</response>
+        /// <response code="200">List of categories are successfully returned</response>
         // GET: api/Categories
         [HttpGet]
         public async Task<ActionResult> GetCategories()
